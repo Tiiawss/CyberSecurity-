@@ -1,2 +1,5 @@
 # Tietokantasovellus
-Tietokantasovellus kurssilla luotu Frisbeegolf aiheinen sovellus
+
+
+# Sovelluksen kuvaus
+Alustava hahmotelma tietokantasovellukselle on sovellus, josta voi etsiä eri frisbeegolfradoista itselleen sopivan jonne mennä pelaamaan, tai käyttää sovelluksessa olevaa arvonta toimintoa joka randomilla ehdottaa sinulle rataa. Jos on kirjautunut käyttäjä niin voi itse lisätä lempiratojensa tiedot järjestelmään.

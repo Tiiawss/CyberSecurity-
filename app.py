@@ -45,3 +45,17 @@ def login():
 def logout():
     del session["username"]
     return redirect("/")
+
+@app.route("/order")
+def order():
+    return render_template("index.html")
+
+
+
+@app.route("/result", methods=["POST"])
+def result():
+
+
+   
+
+    return redirect("/")

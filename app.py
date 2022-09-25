@@ -54,6 +54,18 @@ def order():
 
 @app.route("/result", methods=["POST"])
 def result():
+    course_name= request.form["course_name"]
+    par = request.form["par"]
+    lenght = request.form["lenght"]
+    holes =request.form["holes"]
+    city= request.form["city"]
+    postcode=request.form["postcode"]
+    adress=request.form["adress"]
+
+    sql = "INSERT INTO courses (course_name, par, lenght, holes, city, postcode, adress) VALUES (:course_name, :par, :lenght, :holes, :city, :postcode, :adress)"
+    db.session.execute(sql, {"course_name":course_name, "par":par, "lenght":lenght, "holes":holes, "city":city, "postcode":postcode, "adress":adress})
+    db.session.commit()
+
 
 
    

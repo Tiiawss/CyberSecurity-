@@ -1,6 +1,6 @@
-{% if session.username %}
+<!--{% if session.username %}! -->
 Tervetuloa!
-<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<!--<p>Olet kirjautunut nimellä {{ session.username }}</p>-->
 <a href="/logout">Kirjaudu ulos</a>
 <form action="/result" method="POST">
     Tästä voit lisätä frisbeegolfradan järjestelmäämme!
@@ -27,7 +27,7 @@ Tervetuloa!
 
 <p>
 Olet sivuston {{ counter }}. käyttäjä
-{% else %}
+<!--{% else %}-->
 <form action="/login" method="POST">
 <p>Tunnus:<br>
 <input type="text" name="username"></p>
@@ -35,4 +35,4 @@ Olet sivuston {{ counter }}. käyttäjä
 <input type="password" name="password"></p>
 <input type="submit" value="Kirjaudu">
 </form>
-{% endif %}
+<!--{% endif %}-->

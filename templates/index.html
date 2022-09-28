@@ -1,7 +1,7 @@
-{% if not session.username %}!
+{% if session.username %}
 Tervetuloa!
-<!--<p>Olet kirjautunut nimellä {{ session.username }}</p>
-<a href="/logout">Kirjaudu ulos</a>-->
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
 <form action="/result" method="POST">
     Tästä voit lisätä frisbeegolfradan järjestelmäämme!
 
@@ -28,6 +28,8 @@ Tervetuloa!
 <p>
 Olet sivuston {{ counter }}. käyttäjä
 {% else %}
+<p> Tervetuloa!</p>
+<p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan sinun tulee kirjautua sisään.</p>
 <form action="/login" method="POST">
 <p>Tunnus:<br>
 <input type="text" name="username"></p>

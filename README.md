@@ -7,4 +7,5 @@ Alustava hahmotelma tietokantasovellukselle on sovellus, josta voi etsiä eri fr
 # Sovelluksen tämänhetkinen tilanne
 
 Sovellusta voi käydä katsomassa https://tsoha-fribe.herokuapp.com/
+Sisään kirjautuminen millätahansa keksityllä käyttäjänimi salasana yhdistelmällä.
 

@@ -70,6 +70,23 @@ def create_review():
     return redirect("/")
 
 
+@app.route("/filter", methods=["get"])
+def search():
+	if request.method == "GET":
+		return render_template("filter.html")
+		
+
+@app.route("/filtert")
+def result():
+    query = request.args["filtering"]
+    if query=="1":
+        sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5"
+
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    else:
+        return render_template("error.html", message="Haullasi ei löytynyt aineistoa") 
+    return render_template("filtert.html", courses=courses)
 
 
 

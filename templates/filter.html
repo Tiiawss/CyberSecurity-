@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Hae aineistoa</h2>
+<form action="/filtert" method "GET">
+Filteröinti
+<select name="filtering">
+    <option value=1> Uusin lisäys ensin
+    <option value=2> Vanhin ensin
+    <option value=3> Pisin
+    <option value=4> Isoin par lukema
+
+    </select>
+        
+
+<p>
+<input type="submit" value="Lähetä">
+
+</form>
+<p>
+
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!doctype html>
+<title>Frisbeegolfradat</title>
+<h1><a href="/">Tervetuloa!</a></h1> 
+<hr>
+<nav>
+<ul>
+{% if session.user_id %}
+<li> <a href="/search">Hae aineistoa</a>
+<li> <a href="/userreservations">Omat varaukset</a>
+{% if session.user_role == 2 %}
+<li> <a href="/add">Lisää aineistoa</a>
+<li> <a href="/admin">Hallitse lainausoikeuksia</a>
+{% endif %}
+<li> <a href="/logout">Kirjaudu ulos</a>
+</ul>
+</nav>
+{% else %}
+<li><a href="/login">Kirjaudu sisään</a>
+<li><a href="/register">Rekisteröidy käyttäjäksi</a>
+</ul>
+</nav>
+{% endif %}
+{% block content %}{% endblock %}

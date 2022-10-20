@@ -1,6 +1,9 @@
-{% if session.username %}
+{% extends "layout.html" %}
+{% block content %}
+
+{% if session.user_id %}
 Tervetuloa!
-<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<p>Olet kirjautunut nimellä {{ session.user_name }}</p>
 <a href="/logout">Kirjaudu ulos</a>
 <form action="/result" method="POST">
     Tästä voit lisätä frisbeegolfradan järjestelmäämme!
@@ -10,18 +13,53 @@ Tervetuloa!
     
     <p>
     
-    <input type="submit" value="Lähetä">
+    
     </form>
     <a href="/new">Lisää ratoja</a>
-    <hr>
-    Viimeisemmät käyttäjiemme lisäämät radat:
-    {% for poll in polls %}
-    Aihe: {{ poll.course_name }} <br>
     
-    <a href="/poll/{{ poll.id }}">Arvostele rata</a> |
-    <a href="/result/{{ poll.id }}">Näytä arvostelut</a> <br>
     <hr>
-    {% endfor %}
+    <p>Viimeisemmät käyttäjiemme lisäämät radat:</p>
+
+<table>
+        
+
+        <caption>Viimeiseksi lisätyt radat</caption>
+        <tr>
+          <th>Nimi</th>
+          <th>Par lukema</th>
+          <th>Heittojen kokonaispituus</th>
+          <th>Väylien määrä</th>
+          <th>Kaupunki</th>
+          <th>Postinumero</th>
+          <th>Osoite</th>
+          <th>Arvostelujen keskiarvo(1-5)</th>
+          <th> Arvostele</th>
+        </tr>
+{% for course in courses %}
+
+    
+     
+            <td>{{ course.course_name }}</td>
+            <td>{{ course.par}}</td>
+            <td>{{ course.lenght }}</td>
+            <td>{{ course.holes}}</td>
+            <td>{{ course.city }}</td>
+            <td>{{ course.postcode}}</td>
+            <td>{{ course.adress }}</td>
+            <td>{{ course.id}}</td>
+            <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
+  
+          </tr>
+
+        {% endfor %}
+      </table>
+
+    <p></p>
+   
+    
+  
+    <hr>
+   
     
    
 
@@ -30,24 +68,48 @@ Tervetuloa!
 Olet sivuston {{ counter }}. käyttäjä
 {% else %}
 <p> Tervetuloa!</p>
-<p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan sinun tulee kirjautua sisään.</p>
-<form action="/login" method="POST">
-<p>Tunnus:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<input type="submit" value="Kirjaudu">
+<p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan tai arvostellaksesi sellaisen sinun tulee kirjautua sisään.</p>
 
 
-</form>
+
+
 
 <p>Viimeisemmät käyttäjiemme lisäämät radat:</p>
-    {% for poll in polls %}
-    Aihe: {{ poll.course_name }} <br>
-    <a href="/result/{{ poll.id }}">Näytä arvostelut</a> <br>
+<table>
+        
+
+    <caption>Viimeiseksi lisätyt radat</caption>
+    <tr>
+      <th>Nimi</th>
+      <th>Par lukema</th>
+      <th>Heittojen kokonaispituus</th>
+      <th>Väylien määrä</th>
+      <th>Kaupunki</th>
+      <th>Postinumero</th>
+      <th>Osoite</th>
+      <th>Arvostelujen keskiarvo(1-5)</th>
+      
+    </tr>
+{% for course in courses %}
+
+
+ 
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.par}}</td>
+        <td>{{ course.lenght }}</td>
+        <td>{{ course.holes}}</td>
+        <td>{{ course.city }}</td>
+        <td>{{ course.postcode}}</td>
+        <td>{{ course.adress }}</td>
+        <td>{{ course.id}}</td>
+        
+
+      </tr>
 
     {% endfor %}
-
+  </table>
+    
 {% endif %}
 
 <p></p>
+{% endblock %}

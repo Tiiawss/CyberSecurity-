@@ -1,3 +1,4 @@
+from tkinter import INSERT
 from app import app
 from flask import Flask
 from flask import redirect, render_template, request, session
@@ -51,14 +52,36 @@ def review(id):
     
     return render_template("review.html",id=id)
 
+@app.route("/reviews", methods=["POST"])
+def reviews(id):
+    id=id
+    sql= "SELECT rating FROM reviews"
+    topic = db.session.execute(sql)
+    result = topic.fetchall()
+
+    return render_template("reviews.html",result=result)
+
 @app.route("/create_review", methods=["POST"])
 def create_review():
     
   
     rating= request.form["rating"]
     course_id = request.form["id"]
+    fit= request.form["fit"]
+
+    sql="INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"
+    db.session.execute(sql, {"rating":rating, "course_id":course_id})
+    db.session.commit()
    
-    ratings.add_rating(rating,course_id)
+    #ratings.add_rating(rating,course_id)
+
+    """sql="INSERT INTO shape (fit, course_id) VALUES (:fit, :course_id)"
+    db.session.execute(sql, {"fit":fit, "course_id":course_id})
+    db.session.commit()
+    sql= "INSERT INTO courses (hardness) SELECT fit FROM shape WHERE course_id=id"
+    db.session.execute(sql, {"fit":fit, "course_id":course_id})
+    db.session.commit()"""
+
    
     """sql = "INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"
     db.session.execute(sql, {"rating":rating, "course_id":course_id})
@@ -81,12 +104,36 @@ def result():
     query = request.args["filtering"]
     if query=="1":
         sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5"
-
         result = db.session.execute(sql)
         courses = result.fetchall()
+    elif query =="2":
+        sql = "SELECT * FROM courses ORDER BY id LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="3":
+        sql = "SELECT * FROM courses ORDER BY lenght LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="4":
+        sql = "SELECT * FROM courses ORDER BY lenght DESC LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="5":
+        sql = "SELECT * FROM courses ORDER BY par LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="6":
+        sql = "SELECT * FROM courses ORDER BY par DESC LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    
+    
+
+
+    
     else:
         return render_template("error.html", message="Haullasi ei löytynyt aineistoa") 
-    return render_template("filtert.html", courses=courses)
+    return render_template("filter.html", courses=courses)
 
 
 

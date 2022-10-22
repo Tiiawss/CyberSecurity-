@@ -32,7 +32,7 @@ Tervetuloa!
           <th>Kaupunki</th>
           <th>Postinumero</th>
           <th>Osoite</th>
-          <th>Arvostelujen keskiarvo(1-5)</th>
+          <th>Arvostelut</th>
           <th> Arvostele</th>
         </tr>
 {% for course in courses %}
@@ -46,7 +46,7 @@ Tervetuloa!
             <td>{{ course.city }}</td>
             <td>{{ course.postcode}}</td>
             <td>{{ course.adress }}</td>
-            <td>{{ course.id}}</td>
+            <td><a href="/reviews/{{ course.id }}">Arvostelut</a></td>
             <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
   
           </tr>

@@ -12,6 +12,9 @@ import login
 import ratings
 import users
 
+from statistics import mean
+
+
 
 
 
@@ -52,14 +55,46 @@ def review(id):
     
     return render_template("review.html",id=id)
 
-@app.route("/reviews", methods=["POST"])
+@app.route("/reviews/<int:id>")
 def reviews(id):
-    id=id
-    sql= "SELECT rating FROM reviews"
-    topic = db.session.execute(sql)
-    result = topic.fetchall()
+    
+    
+    rev_list=ratings.rev(id)
+    s=0
+    d=0
+    if rev_list== None:
+        result= "tätä rataa ei ole vielä arvioitu"
+    else:
+        for i in rev_list:
+            s=s+i[0]
+            d=d+1
+        if s ==0 or d ==0:
+            result=0
+        else:
+            result=round(s/d,2)
 
-    return render_template("reviews.html",result=result)
+    fit_list=ratings.fit(id)
+    s=0
+    d=0
+    if fit_list== None:
+        fit= "tätä rataa ei ole vielä arvioitu"
+    else:
+        for i in fit_list:
+            s=s+i[0]
+            d=d+1
+        if s ==0 or d ==0:
+            fit=0
+        else:
+            fit=round(s/d,2)
+    name=course_app.find_course(id)
+    
+    
+    
+    
+    
+   
+
+    return render_template("reviews.html",result=result, fit=fit, name=name)
 
 @app.route("/create_review", methods=["POST"])
 def create_review():
@@ -72,22 +107,12 @@ def create_review():
     sql="INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"
     db.session.execute(sql, {"rating":rating, "course_id":course_id})
     db.session.commit()
-   
-    #ratings.add_rating(rating,course_id)
-
-    """sql="INSERT INTO shape (fit, course_id) VALUES (:fit, :course_id)"
+    
+    sql="INSERT INTO shape (fit, course_id) VALUES (:fit, :course_id)"
     db.session.execute(sql, {"fit":fit, "course_id":course_id})
     db.session.commit()
-    sql= "INSERT INTO courses (hardness) SELECT fit FROM shape WHERE course_id=id"
-    db.session.execute(sql, {"fit":fit, "course_id":course_id})
-    db.session.commit()"""
+    #ratings.add_rating(rating,course_id)
 
-   
-    """sql = "INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"
-    db.session.execute(sql, {"rating":rating, "course_id":course_id})
-    sql= "INSERT INTO courses SELECT rating FROM reviews WHERE course_id"""
-
-    
     
 
     return redirect("/")
@@ -102,37 +127,7 @@ def search():
 @app.route("/filtert")
 def result():
     query = request.args["filtering"]
-    if query=="1":
-        sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    elif query =="2":
-        sql = "SELECT * FROM courses ORDER BY id LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    elif query =="3":
-        sql = "SELECT * FROM courses ORDER BY lenght LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    elif query =="4":
-        sql = "SELECT * FROM courses ORDER BY lenght DESC LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    elif query =="5":
-        sql = "SELECT * FROM courses ORDER BY par LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    elif query =="6":
-        sql = "SELECT * FROM courses ORDER BY par DESC LIMIT 5"
-        result = db.session.execute(sql)
-        courses = result.fetchall()
-    
-    
-
-
-    
-    else:
-        return render_template("error.html", message="Haullasi ei löytynyt aineistoa") 
+    courses=course_app.filter_courses(query)
     return render_template("filter.html", courses=courses)
 
 

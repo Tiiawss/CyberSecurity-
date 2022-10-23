@@ -13,3 +13,41 @@ def index_course():
     result = db.session.execute(sql)
     courses = result.fetchall()
     return courses
+
+def find_course(id):
+    sql ="SELECT course_name FROM courses WHERE id=:id"
+    result = db.session.execute(sql, {"id":id}).fetchone()[0]
+    return result
+
+def filter_courses(query):
+    if query=="1":
+        sql = "SELECT * FROM courses ORDER BY id DESC LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="2":
+        sql = "SELECT * FROM courses ORDER BY id LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="3":
+        sql = "SELECT * FROM courses ORDER BY lenght LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="4":
+        sql = "SELECT * FROM courses ORDER BY lenght DESC LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="5":
+        sql = "SELECT * FROM courses ORDER BY par LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    elif query =="6":
+        sql = "SELECT * FROM courses ORDER BY par DESC LIMIT 5"
+        result = db.session.execute(sql)
+        courses = result.fetchall()
+    
+    
+
+
+    
+    
+    return courses

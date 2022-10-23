@@ -2,27 +2,14 @@
 {% block content %}
 
 {% if session.user_id %}
-Tervetuloa!
+<h2>Tervetuloa!</h2>
 <p>Olet kirjautunut nimellä {{ session.user_name }}</p>
-<a href="/logout">Kirjaudu ulos</a>
+<p>Olet sivuston {{ counter }}. käyttäjä</p>
 <form action="/result" method="POST">
-    Tästä voit lisätä frisbeegolfradan järjestelmäämme!
-
-    <p>
-   
-    
-    <p>
-    
-    
     </form>
-    <a href="/new">Lisää ratoja</a>
-    
+    <a href="/new">Tästä voit lisätä frisbeegolfratoja järjestelmäämme</a>
     <hr>
-
-
 <table>
-        
-
         <caption>Viimeiseksi lisätyt radat</caption>
         <tr>
           <th>Nimi</th>
@@ -35,10 +22,7 @@ Tervetuloa!
           <th>Arvostelut</th>
           <th> Arvostele</th>
         </tr>
-{% for course in courses %}
-
-    
-     
+{% for course in courses %} 
             <td>{{ course.course_name }}</td>
             <td>{{ course.par}}</td>
             <td>{{ course.lenght }}</td>
@@ -48,36 +32,16 @@ Tervetuloa!
             <td>{{ course.adress }}</td>
             <td><a href="/reviews/{{ course.id }}">Arvostelut</a></td>
             <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
-  
           </tr>
-
         {% endfor %}
       </table>
-
-    <p></p>
-   
-    
-  
+    <p></p> 
     <hr>
-   
-    
-   
-
-
 <p>
-Olet sivuston {{ counter }}. käyttäjä
 {% else %}
 <p> Tervetuloa!</p>
-<p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan tai arvostellaksesi sellaisen sinun tulee kirjautua sisään.</p>
-
-
-
-
-
-
+<p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan sinun tulee kirjautua sisään. Voit kuitenkin arvostella ratoja kirjautumatta.</p>
 <table>
-        
-
     <caption>Viimeiseksi lisätyt radat</caption>
     <tr>
       <th>Nimi</th>
@@ -87,13 +51,10 @@ Olet sivuston {{ counter }}. käyttäjä
       <th>Kaupunki</th>
       <th>Postinumero</th>
       <th>Osoite</th>
-      <th>Arvostelujen keskiarvo(1-5)</th>
-      
+      <th>Arvostelut</th>
+      <th> Arvostele</th>
     </tr>
-{% for course in courses %}
-
-
- 
+{% for course in courses %} 
         <td>{{ course.course_name }}</td>
         <td>{{ course.par}}</td>
         <td>{{ course.lenght }}</td>
@@ -101,15 +62,11 @@ Olet sivuston {{ counter }}. käyttäjä
         <td>{{ course.city }}</td>
         <td>{{ course.postcode}}</td>
         <td>{{ course.adress }}</td>
-        <td>{{ course.id}}</td>
-        
-
+        <td><a href="/reviews/{{ course.id }}">Arvostelut</a></td>
+        <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
       </tr>
-
     {% endfor %}
   </table>
-    
 {% endif %}
-
 <p></p>
 {% endblock %}

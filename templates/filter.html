@@ -11,18 +11,15 @@ Filteröinti
     <option value=4> Pisin metreissä
     <option value=5> Pienin par 
     <option value=6> Isoin par
-
-
     </select>
-        
 
 <p>
-<input type="submit" value="Lähetä">
+<input type="submit" value="Filtteröi">
 
 </form>
-
+<a href="/">Takaisin</a>
 <p>
-    Haullasi löytyi seuraavat tulokset:
+    <h2>Haullasi löytyi seuraavat tulokset:</h2>
 <p>
 <ul>
     <table>
@@ -35,8 +32,6 @@ Filteröinti
           <th>Kaupunki</th>
           <th>Postinumero</th>
           <th>Osoite</th>
-          <th>Arvostelujen keskiarvo(1-5)</th>
-          <th> Arvostele</th>
         </tr>
 {% for course in courses %}  
             <td>{{ course.course_name }}</td>
@@ -46,18 +41,10 @@ Filteröinti
             <td>{{ course.city }}</td>
             <td>{{ course.postcode}}</td>
             <td>{{ course.adress }}</td>
-            <td>{{ course.id}}</td>
-            <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
-  
           </tr>
-
         {% endfor %}
       </table>
 
     <p></p>
-   
-    
-
-
 
 {% endblock %}

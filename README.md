@@ -1,4 +1,4 @@
-# Tietokantasovellus
+# Frisbeegolf Tietokantasovellus
 
 
 # Sovelluksen kuvaus

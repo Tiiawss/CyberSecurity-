@@ -1,0 +1,43 @@
+body {
+    margin: auto;
+    max-width: 45em;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+nav li {
+    display: inline-block;
+    padding: 0 .5em;
+}
+h1 {
+    background: rgba(28, 117, 65, 0.74);
+    font-weight: bold;
+    padding: 2em 1em;
+    font-size: 2em;
+    border-radius: .5em;
+    margin-top: .5em;
+}
+h1 a {
+	text-decoration: none;
+	color: rgb(51, 56, 53);
+}
+nav li a {
+    text-decoration: none;
+    color: rgb(6, 58, 30);
+}
+a {
+    text-decoration: none;
+    color: rgb(6, 58, 30);
+}
+table {
+    background: rgb(122, 150, 144);
+	font-weight: bold;
+	padding: 2em 1em;
+	font-size: 1em;
+	border-radius: .5em;
+}
+form {
+    display: block;
+    padding: .5em;
+    background: rgba(154, 172, 155, 0.836);
+
+}
+

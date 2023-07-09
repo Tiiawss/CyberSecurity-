@@ -15,7 +15,7 @@ def visitors():
 def index():
     visits.add_visit()
     counter = visits.get_counter()
-    courses= course_app.index_course()
+    courses = course_app.index_course()
     return render_template("index.html", courses=courses, counter=counter)
 
 @app.route("/new")

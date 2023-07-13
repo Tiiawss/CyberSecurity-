@@ -8,7 +8,7 @@ Tunnusten luonnin ja kirjautumisen jälkeen näiden ominaisuuksien lisäksi käy
 
 
 # Sovelluksen tämänhetkinen tilanne
-Sovellusta voi käydä katsomassa https://tsoha-fribe.herokuapp.com/
+Sovellusta voi käydä katsomassa https://tsoha-firsbee.fly.dev/
 Sovellukseen voi tutustua joko rekisteröitymällä tai vain peruskäyttäjänä. Sovelluksen ominaisuuksista toimivat tällä hetkellä kaikki.
 
 - Sisään kirjautuminen

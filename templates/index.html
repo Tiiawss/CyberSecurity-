@@ -3,12 +3,10 @@
 
 {% if session.user_id %}
 <h2>Tervetuloa!</h2>
-<p>Olet kirjautunut nimellä {{ session.user_name }}</p>
-<p>Olet sivuston {{ counter }}. käyttäjä</p>
-<form action="/result" method="POST">
-    </form>
-    <a href="/new">Tästä voit lisätä frisbeegolfratoja järjestelmäämme</a>
-    <hr>
+<p>Olet kirjautunut nimellä {{ session.user_name }}.</p>
+<p>Olet sivuston {{ counter }}. käyttäjä.</p>
+<p>Alla näet viisi viimeisimpänä sivustollemme lisättyä rataa.</p>
+<hr>
 <table>
         <caption>Viimeiseksi lisätyt radat</caption>
         <tr>

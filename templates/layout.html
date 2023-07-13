@@ -7,8 +7,9 @@
 <nav>
 <ul>
 {% if session.user_id %}
+<li> <a href="/">Etusivu</a>
 <li> <a href="/new">Lisää ratoja</a>
-<li> <a href="/filter">Hae aineistosta filteröimällä</a>
+<li> <a href="/filter">Suodata</a>
 
 {% if session.user_role == 2 %}
 
@@ -17,9 +18,10 @@
 </ul>
 </nav>
 {% else %}
+<li> <a href="/">Etusivu</a>
 <li><a href="/login">Kirjaudu sisään</a>
 <li><a href="/register">Rekisteröidy käyttäjäksi</a>
-<li><a href="/filter">Filteröi ja hae</a>
+<li><a href="/filter">Suodata</a>
 </ul>
 </nav>
 {% endif %}

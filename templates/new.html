@@ -2,19 +2,19 @@
 {% block content %}
 <form action="/create" method="POST">
     <p>Radan nimi:<br>
-    <input type="text" name="name"></p>
+    <input type="text" name="name" maxlength="40" required></p>
     <p>Kokonais par lukema:<br>
-    <input type="number" name="par"></p>
+    <input type="number" name="par" maxlength="3" required></p>
     <p>Heittojen yhteismäärä metreissä:<br>
-    <input type="number" name="lenght"></p>
+    <input type="number" name="lenght" maxlength="5" required></p>
     <p>Väylien määrä:<br>
-    <input type="number" name="holes"></p>
+    <input type="number" name="holes" maxlength="2" required></p>
     <p>Kaupunki:<br>
-    <input type="text" name="city"></p>
+    <input type="text" name="city" maxlength="40" required></p>
     <p>Postinumero:<br>
-    <input type="number" name="postnumber"></p>
+    <input type="number" name="postnumber" maxlength="5" required></p>
     <p>Osoite:<br>
-    <input type="text" name="adress"></p>
+    <input type="text" name="adress" maxlength="40" required></p>
     <input type="submit" value="Luo rata">
     <a href="/">Takaisin</a>
     </form>

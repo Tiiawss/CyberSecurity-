@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-
 <h2>Hae aineistoa</h2>
 <form action="/filtert" method "GET">
 Filteröinti
@@ -23,23 +22,23 @@ Filteröinti
 <p>
 <ul>
     <table>
-        <caption>Viimeiseksi lisätyt radat</caption>
+        <caption>Top 5</caption>
         <tr>
-          <th>Nimi</th>
-          <th>Par lukema</th>
-          <th>Heittojen kokonaispituus</th>
-          <th>Väylien määrä</th>
-          <th>Kaupunki</th>
-          <th>Postinumero</th>
-          <th>Osoite</th>
+          <th>Nimi </th>
+          <th>Par lukema </th>
+          <th>Heittojen kokonaispituus </th>
+          <th>Väylien määrä </th>
+          <th>Kaupunki </th>
+          <th>Postinumero </th>
+          <th>Osoite </th>
         </tr>
 {% for course in courses %}  
             <td>{{ course.course_name }}</td>
-            <td>{{ course.par}}</td>
+            <td>{{ course.par }}</td>
             <td>{{ course.lenght }}</td>
-            <td>{{ course.holes}}</td>
+            <td>{{ course.holes }}</td>
             <td>{{ course.city }}</td>
-            <td>{{ course.postcode}}</td>
+            <td>{{ course.postcode }}</td>
             <td>{{ course.adress }}</td>
           </tr>
         {% endfor %}

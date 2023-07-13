@@ -27,12 +27,14 @@ a {
     text-decoration: none;
     color: rgb(6, 58, 30);
 }
-table {
+table, td {
     background: rgb(122, 150, 144);
 	font-weight: bold;
 	padding: 2em 1em;
 	font-size: 1em;
-	border-radius: .5em;
+	border-radius: .2em;
+    
+
 }
 form {
     display: block;

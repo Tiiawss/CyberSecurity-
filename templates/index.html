@@ -5,31 +5,31 @@
 <h2>Tervetuloa!</h2>
 <p>Olet kirjautunut nimellä {{ session.user_name }}.</p>
 <p>Olet sivuston {{ counter }}. käyttäjä.</p>
-<p>Alla näet viisi viimeisimpänä sivustollemme lisättyä rataa.</p>
+<p>Alla näet viisi viimeisimpänä sivustollemme lisättyä rataa. Voit nyt kirjautuneena käydä itse lisäämässä ratoja joita tiedät tai vaikka löytää uuden lempiradan suodata toimintomme avulla. Muista myös arvostella pelaamasi radat käyntisi jälkeen!</p>
 <hr>
 <table>
         <caption>Viimeiseksi lisätyt radat</caption>
         <tr>
-          <th>Nimi</th>
-          <th>Par lukema</th>
-          <th>Heittojen kokonaispituus</th>
-          <th>Väylien määrä</th>
-          <th>Kaupunki</th>
-          <th>Postinumero</th>
-          <th>Osoite</th>
-          <th>Arvostelut</th>
-          <th> Arvostele</th>
+          <th>Nimi </th>
+          <th>Par lukema </th>
+          <th>Heittojen kokonaispituus </th>
+          <th>Väylien määrä </th>
+          <th>Kaupunki </th>
+          <th>Postinumero </th>
+          <th>Osoite </th>
+          <th>Arvostelut </th>
+          <th>Arvostele </th>
         </tr>
 {% for course in courses %} 
             <td>{{ course.course_name }}</td>
-            <td>{{ course.par}}</td>
+            <td>{{ course.par }}</td>
             <td>{{ course.lenght }}</td>
-            <td>{{ course.holes}}</td>
+            <td>{{ course.holes }}</td>
             <td>{{ course.city }}</td>
-            <td>{{ course.postcode}}</td>
+            <td>{{ course.postcode }}</td>
             <td>{{ course.adress }}</td>
             <td><a href="/reviews/{{ course.id }}">Arvostelut</a></td>
-            <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
+            <td><a href="/review/{{ course.id }}">Arvostele</a></td>
           </tr>
         {% endfor %}
       </table>
@@ -37,31 +37,31 @@
     <hr>
 <p>
 {% else %}
-<p> Tervetuloa!</p>
+<p> Tervetuloa! </p>
 <p> Tällä sivulla voit tutkia muiden lisäämiä frisbeegolfratoja tai lisätä itse omia lemppareitasi. Lisätäksesi radan sinun tulee kirjautua sisään. Voit kuitenkin arvostella ratoja kirjautumatta.</p>
 <table>
     <caption>Viimeiseksi lisätyt radat</caption>
     <tr>
-      <th>Nimi</th>
-      <th>Par lukema</th>
-      <th>Heittojen kokonaispituus</th>
-      <th>Väylien määrä</th>
-      <th>Kaupunki</th>
-      <th>Postinumero</th>
-      <th>Osoite</th>
-      <th>Arvostelut</th>
-      <th> Arvostele</th>
+      <th>Nimi </th>
+      <th>Par lukema </th>
+      <th>Heittojen kokonaispituus </th>
+      <th>Väylien määrä </th>
+      <th>Kaupunki </th>
+      <th>Postinumero </th>
+      <th>Osoite </th>
+      <th>Arvostelut </th>
+      <th>Arvostele </th>
     </tr>
 {% for course in courses %} 
         <td>{{ course.course_name }}</td>
-        <td>{{ course.par}}</td>
+        <td>{{ course.par }}</td>
         <td>{{ course.lenght }}</td>
-        <td>{{ course.holes}}</td>
+        <td>{{ course.holes }}</td>
         <td>{{ course.city }}</td>
-        <td>{{ course.postcode}}</td>
+        <td>{{ course.postcode }}</td>
         <td>{{ course.adress }}</td>
         <td><a href="/reviews/{{ course.id }}">Arvostelut</a></td>
-        <td><a href="/review/{{ course.id }}">Arvostele</a> </td>
+        <td><a href="/review/{{ course.id }}">Arvostele</a></td>
       </tr>
     {% endfor %}
   </table>

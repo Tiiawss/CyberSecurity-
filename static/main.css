@@ -27,14 +27,25 @@ a {
     text-decoration: none;
     color: rgb(6, 58, 30);
 }
-table, td {
+table {
     background: rgb(122, 150, 144);
 	font-weight: bold;
-	padding: 2em 1em;
-	font-size: 1em;
-	border-radius: .2em;
-    
-
+    border-collapse: collapse;
+    width: 70%;
+	font-size: 1em;    
+}
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+table tr:nth-child(even){background-color: #a3bea6;}
+table tr:hover {background-color: #ddd;}
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5d8a79;
+  color: rgb(24, 26, 24);
 }
 form {
     display: block;

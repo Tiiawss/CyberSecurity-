@@ -75,7 +75,6 @@ def create_review():
     rating= request.form["rating"]
     course_id = request.form["id"]
     fit= request.form["fit"]
-
     ratings.add_rating(rating, course_id)
     ratings.add_shape(fit, course_id)
     return redirect("/")

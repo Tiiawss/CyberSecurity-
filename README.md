@@ -17,6 +17,11 @@ Sovellukseen voi tutustua joko rekisteröitymällä tai vain peruskäyttäjänä
 - Ratojen arvostelu sekä sisään kirjautumisella että ilman
 - Ratojen arvostelujen keskiarvon katsominen sekä sisään kirjautumisella että ilman
 - Ratojen filtteröinti sekä sisäänkirjautuneena että ilman
-- Kävijämäärän näkyminen sisäänkirjautuneille
+- Vierailumäärän näkyminen sisäänkirjautuneille
+
+# Parannus ideoita
+- Salasanalle minimivaatimukset, esim. pakko olla isoja ja pieniä kirjaimia
+- Filtteröinti mahdollisuus rata-arvostelujen perusteella
+- Ratakarttojen lataus mahdollisuus
 
 

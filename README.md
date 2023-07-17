@@ -2,26 +2,23 @@
 
 
 # Sovelluksen kuvaus
-Tässä sovelluksessa voi etsiä eri frisbeegolfradoista itselleen sopivan jonne mennä pelaamaan, lisätä ratoja sovelluksen tietokantaan ja arvostella ratoja.
-Luomatta tunnuksia sovellukseen pääsee arvostelemaan muiden lisäämiä ratoja ja filteröimään hakusivulta itselleen sopivia vaihtoehtoja.
-Tunnusten luonnin ja kirjautumisen jälkeen näiden ominaisuuksien lisäksi käyttäjä voi lisätä järjestelmään uusia ratoja. 
 
+Sovelluksessa voi etsiä itselleen sopivia frisbeegolfratoja pelaamista varten, lisätä itse uusia ratoja sovelluksen tietokantaan sekä arvostella ratoja. Muiden lisäämien ratojen arvostelu sekä sopivien vaihtoehtojen filtteröinti hakusivulta onnistuu ilman tunnusten luomista, ja näiden ominaisuuksien lisäksi käyttäjä voi tunnusten luonnin ja sisäänkirjautumisen jälkeen myös itse lisätä järjestelmään uusia ratoja.
 
 # Sovelluksen tämänhetkinen tilanne
-Sovellusta voi käydä katsomassa https://tsoha-firsbee.fly.dev/
-Sovellukseen voi tutustua joko rekisteröitymällä tai vain peruskäyttäjänä. Sovelluksen ominaisuuksista toimivat tällä hetkellä kaikki.
 
-- Sisään kirjautuminen
-- Rekisteröityminen
-- Ratojen lisäys vain sisäänkirjautuneena
-- Ratojen arvostelu sekä sisään kirjautumisella että ilman
-- Ratojen arvostelujen keskiarvon katsominen sekä sisään kirjautumisella että ilman
-- Ratojen filtteröinti sekä sisäänkirjautuneena että ilman
-- Vierailumäärän näkyminen sisäänkirjautuneille
+Sovellusta voi käydä katsomassa https://tsoha-firsbee.fly.dev/ Sovellukseen voi tutustua joko rekisteröitymällä tai vain peruskäyttäjänä. Sovelluksen ominaisuuksista toimivat tällä hetkellä kaikki.
+* Sisäänkirjautuminen
+* Rekisteröityminen
+* Ratojen lisäys vain sisäänkirjautuneena
+* Ratojen arvostelu sekä sisäänkirjautumisella että ilman
+* Ratojen arvostelujen keskiarvon katsominen sekä sisäänkirjautumisella että ilman
+* Ratojen filtteröinti sekä sisäänkirjautuneena että ilman
+* Vierailumäärän näkyminen sisäänkirjautuneille
+* Vierailla myös mobiilikäyttäjänä
 
-# Parannus ideoita
-- Salasanalle minimivaatimukset, esim. pakko olla isoja ja pieniä kirjaimia
-- Filtteröinti mahdollisuus rata-arvostelujen perusteella
-- Ratakarttojen lataus mahdollisuus
+# Parannusideoita
 
-
+* Salasanalle minimivaatimukset, esim. pakko olla isoja ja pieniä kirjaimia
+* Filtteröintimahdollisuus rata-arvostelujen perusteella
+* Ratakarttojen latausmahdollisuus

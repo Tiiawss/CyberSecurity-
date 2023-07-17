@@ -15,7 +15,7 @@ Sovellusta voi käydä katsomassa https://tsoha-firsbee.fly.dev/ Sovellukseen vo
 * Ratojen arvostelujen keskiarvon katsominen sekä sisäänkirjautumisella että ilman
 * Ratojen filtteröinti sekä sisäänkirjautuneena että ilman
 * Vierailumäärän näkyminen sisäänkirjautuneille
-* Vierailla myös mobiilikäyttäjänä
+* Vierailu mobiilikäyttäjänä
 
 # Parannusideoita
 

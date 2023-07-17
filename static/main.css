@@ -2,6 +2,7 @@ body {
     margin: auto;
     max-width: 45em;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    padding: 1rem;
 }
 nav li {
     display: inline-block;
@@ -34,13 +35,19 @@ table {
     width: 70%;
 	font-size: 1em;    
 }
-table td, table th {
+table td {
     border: 1px solid #ddd;
     padding: 8px;
 }
-table tr:nth-child(even){background-color: #a3bea6;}
-table tr:hover {background-color: #ddd;}
+table tr:nth-child(even) {
+    background-color: #a3bea6;
+}
+table tr:hover {
+    background-color: #ddd;
+}
 table th {
+  border: 1px solid #ddd;
+  padding: 8px;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -52,5 +59,50 @@ form {
     padding: .5em;
     background: rgba(154, 172, 155, 0.836);
 
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	tr { 
+        border: 1px solid #ccc; 
+    }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+        text-align: right
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+    td:nth-of-type(1):before { content: "Nimi"; }
+	td:nth-of-type(2):before { content: "Par lukema"; }
+	td:nth-of-type(3):before { content: "Heittojen kokonaispituus"; }
+	td:nth-of-type(4):before { content: "Väylien määrä"; }
+	td:nth-of-type(5):before { content: "Kaupunki"; }
+	td:nth-of-type(6):before { content: "Postinumero"; }
+	td:nth-of-type(7):before { content: "Osoite"; }
+	td:nth-of-type(8):before { content: "Arvostelut"; }
+	td:nth-of-type(9):before { content: "Arvostele"; }
+	
 }
 

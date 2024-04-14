@@ -1,0 +1,11 @@
+{{ poll.course_name }}
+<hr>
+<form action="/answer" method="POST">
+{{choice }}
+
+<p>
+<input type="submit" value="Lähetä">
+<input type="hidden" name="id" value="{{ id }}">
+</form>
+<hr>
+<a href="/">Takaisin</a>

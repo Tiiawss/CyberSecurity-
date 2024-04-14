@@ -1,10 +1,15 @@
 from db import db
 
 def add_rating(rating, course_id):
-    sql="""INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"""
+
+
+    # The line below contain the SQL injction flaw, the comment below is the fix
+    sql = f"""INSERT INTO reviews (rating, course_id) VALUES ({rating}, {course_id})"""
+    #sql="""INSERT INTO reviews (rating, course_id) VALUES (:rating, :course_id)"""
     db.session.execute(sql, {"rating":rating, "course_id":course_id})
     db.session.commit()
-
+    
+   
 def rev(id):
     sql= """SELECT rating FROM reviews WHERE course_id=:id"""
     result_list = db.session.execute(sql, {"id":id}).fetchall()

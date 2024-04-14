@@ -4,6 +4,8 @@ import course_app
 import visits
 import ratings
 import users
+#from flask_wtf.csrf import CSRFProtect
+#csrf = CSRFProtect(app)
 
 @app.route("/visitors")
 def visitors():
@@ -77,7 +79,9 @@ def create_review():
     fit= request.form["fit"]
     ratings.add_rating(rating, course_id)
     ratings.add_shape(fit, course_id)
-    return redirect("/")
+    #Below is XSS vunerability and the comment below is a fix
+    return f"<script>alert('Your review has been successfully submitted!');</script>"
+    #return redirect("/")
 
 @app.route("/filter", methods=["get"])
 def search():
@@ -97,8 +101,10 @@ def login():
 	if request.method == "POST":
 		username = request.form["username"]
 		password = request.form["password"]
+         
 		if users.login(username, password):
 			return redirect("/")
+        
 		return render_template("error.html", message="Väärä käyttäjätunnus tai salasana")
 
 

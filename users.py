@@ -4,6 +4,8 @@ from flask import abort, request, session
 from db import db
 
 def register(name, password, role):
+	#if not re.search(r"\d", password) or not re.search(r"[A-Z]", password):
+        #return False
 	hash_value = generate_password_hash(password)
 	try:
 		sql = """INSERT INTO users (name, password, role) VALUES (:name, :password, :role)"""

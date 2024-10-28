@@ -1,7 +1,8 @@
 import os
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask import abort, request, session
+from flask import abort, request, session, render_template_string
 from db import db
+from markupsafe import escape
 
 def register(name, password, role):
 	#if not re.search(r"\d", password) or not re.search(r"[A-Z]", password):
@@ -48,3 +49,14 @@ def check_role(role):
 def check_csrf():
     if session["csrf_token"] != request.form["csrf_token"]:
         abort(403)
+
+def person_sosial_security_number_input():
+    sosial_security_number = request.args.get("CC", "")
+    html_content = f"<input name='sosial security number' type='TEXT' value='{sosial_security}'>"
+    return render_template_string(html_content)
+
+//def person_sosial_security_number_input():
+//sosial_security_number = request.args.get("CC", "")
+//safe_sosial_security = escape(sosial_security)
+//html_content = f"<input name='sosial security number' type='TEXT' value='{sosial_security}'>"
+//    return render_template_string(html_content)
